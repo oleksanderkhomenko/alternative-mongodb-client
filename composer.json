@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "phpunit/php-code-coverage": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Client\\": "classes/"
+        }
+    }
+}
