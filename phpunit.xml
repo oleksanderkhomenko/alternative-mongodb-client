@@ -19,5 +19,4 @@
          <directory>classes/</directory>
      </whitelist>
    </filter>
-   
 </phpunit>
