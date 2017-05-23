@@ -7,8 +7,5 @@
         "psr-4": {
             "Client\\": "classes/"
         }
-    },
-    "require": {
-        "mongodb/mongodb": "^1.1"
     }
 }

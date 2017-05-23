@@ -2,8 +2,9 @@
 
 ## Installation
 1. Run "composer install" from the project folder
-2. If you have problems with composer installation - please
-install mongodb - http://php.net/manual/ru/mongodb.installation.pecl.php
+
+## Requirements
+1. Installed - http://php.net/manual/ru/mongo.installation.php#mongo.installation.nix
 
 ## Usage
 1. Open terminal

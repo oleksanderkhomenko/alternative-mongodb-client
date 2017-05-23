@@ -79,37 +79,30 @@ class MongoData {
 
     public function formatFilterArray($data)
     {
-        $formatted = [];
         if (sizeof($data) == 3) {
             switch ($data[1]) {
                 case '=':
-                    $formatted = [$data[0]=>$data[2]];
-                    break;
+                    return $formatted = [$data[0]=>$data[2]];
 
                 case '>':
-                    $formatted = [$data[0]=>['$gt'=>$data[2]]];
-                    break;
+                    return $formatted = [$data[0]=>['$gt'=>$data[2]]];
 
                 case '<':
-                    $formatted = [$data[0]=>['$lt'=>$data[2]]];
-                    break;
+                    return $formatted = [$data[0]=>['$lt'=>$data[2]]];
 
                 case '<>':
-                    $formatted = [$data[0]=>['$ne'=>$data[2]]];
-                break;
+                    return $formatted = [$data[0]=>['$ne'=>$data[2]]];
 
                 case '>=':
-                    $formatted = [$data[0]=>['$gte'=>$data[2]]];
-                break;
+                    return $formatted = [$data[0]=>['$gte'=>$data[2]]];
 
                 case '<=':
-                    $formatted = [$data[0]=>['$lte'=>$data[2]]];
-                break;
+                    return $formatted = [$data[0]=>['$lte'=>$data[2]]];
             }
 
         }
 
-        return $formatted;
+        return [];
     }
 
     public function getSelectValues($select = [])

@@ -19,7 +19,7 @@ if($string->checkString($sql)) {
     $string->checkSringStructure();
 
     if(Client\String::noErrors($string->errors)) {
-        $mongo = new MongoDB\Client();
+        $mongo = new Mongo();
         $database = trim($db);
         $table = $string->from[0];
 
@@ -31,7 +31,16 @@ if($string->checkString($sql)) {
             $select = $mongodata->getSelectValues($string->select);
             $where = $mongodata->getFilterOptions($string->where);
             $options = $mongodata->getOptions($string->order, $string->skip, $string->limit);
-            $document = $collection->find($where, $options);
+            $document = $collection->find($where);
+            if (isset($options['limit'])) {
+                $document = $document->limit($options['limit']);
+            }
+            if (isset($options['skip'])) {
+                $document = $document->skip($options['skip']);
+            }
+            if (isset($options['sort'])) {
+                $document = $document->sort($options['sort']);
+            }
 
             foreach ($document as $current) {
                 foreach ($select as $key => $value) {
