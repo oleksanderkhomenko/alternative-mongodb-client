@@ -1,7 +1,7 @@
 <?php
 namespace Client;
 
-class String
+class StringSplitter
 {
 
     public $sql = null;

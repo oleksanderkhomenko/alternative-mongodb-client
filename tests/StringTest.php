@@ -1,12 +1,12 @@
 <?php
     use PHPUnit\Framework\TestCase;
 
-    class StringTest extends TestCase
+    class StringSplitterTest extends TestCase
     {
 
         public function testCheckString()
         {
-            $ostring = new \Client\String();
+            $ostring = new \Client\StringSplitter();
             $sql = '';
             $string = $ostring->checkString($sql);
             $this->assertFalse($string);
@@ -19,14 +19,14 @@
         public function testNoErrors()
         {
             $errors = [];
-            self::assertTrue(\Client\String::noErrors($errors));
+            self::assertTrue(\Client\StringSplitter::noErrors($errors));
             $errors = ['first_error','second_error'];
-            self::assertFalse(\Client\String::noErrors($errors));
+            self::assertFalse(\Client\StringSplitter::noErrors($errors));
         }
 
         public function testCheckSringStructure()
         {
-            $ostring = new \Client\String();
+            $ostring = new \Client\StringSplitter();
             $string = $ostring->checkSringStructure();
             $this->assertFalse($string);
 
@@ -42,14 +42,14 @@
             $ostring->sql = 'SELECT * FROM table';
             $ostring->errors = [];
             $string = $ostring->checkSringStructure();
-            $this->assertTrue(\Client\String::noErrors($ostring->errors));
+            $this->assertTrue(\Client\StringSplitter::noErrors($ostring->errors));
             $this->assertEquals('*', $ostring->select[0]);
             $this->assertEquals('table', $ostring->from[0]);
 
             $ostring->sql = 'SELECT * FROM table WHERE id = 2 AND first_name = Andy ORDER BY first_name ASC SKIP 10 LIMIT 5';
             $ostring->errors = [];
             $string = $ostring->checkSringStructure();
-            $this->assertTrue(\Client\String::noErrors($ostring->errors));
+            $this->assertTrue(\Client\StringSplitter::noErrors($ostring->errors));
             $this->assertEquals('10', $ostring->skip[0]);
             $this->assertEquals('5', $ostring->limit[0]);
             $this->assertInternalType('array', $ostring->order);

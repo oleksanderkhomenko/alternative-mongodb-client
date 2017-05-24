@@ -13,12 +13,12 @@ if(empty(trim($db)) || strpos($db, ' ') !== false || empty(trim($sql))) {
     exit(0);
 }
 
-$string = new Client\String();
+$string = new Client\StringSplitter();
 
 if($string->checkString($sql)) {
     $string->checkSringStructure();
 
-    if(Client\String::noErrors($string->errors)) {
+    if(Client\StringSplitter::noErrors($string->errors)) {
         $mongo = new Mongo();
         $database = trim($db);
         $table = $string->from[0];
