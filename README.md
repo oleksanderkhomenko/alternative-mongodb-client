@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/oleksanderkhomenko/alternative-mongodb-client.svg?branch=master)](https://travis-ci.org/oleksanderkhomenko/alternative-mongodb-client)
+
 # alternative-mongodb-client
 
 ## Installation
